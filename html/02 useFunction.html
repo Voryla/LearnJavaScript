@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        // 函数关键字function 函数名()
+        function myFunction() {
+            document.getElementById("demo").innerHTML = "head中的函数";
+        }
+    </script>
+</head>
+<body>
+<p id="demo">这是一个段落</p>
+<button onclick="myFunction()">点击试试</button>
+<button style="margin-left: 20px;" onclick="myFunction2()">点击试试</button>
+<!--提示：把脚本置于 <body> 元素的底部，可改善显示速度，因为脚本编译会拖慢显示。-->
+<script>
+    function myFunction2() {
+        document.getElementById("demo").innerHTML = "body内的函数"
+    }
+</script>
+</body>
+</html>
