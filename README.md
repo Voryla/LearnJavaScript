@@ -51,7 +51,7 @@
 编译原理：编译器把程序分解成词法单元(token)，然后把词法单元解析成语法树(AST)，再把语法树变成机器指令等待执行的过程
 
 图解如下：  
-![alt 图解](images/JavaScript编译图.png)
+![alt 图解](. images/JavaScript编译图.png)
  
 
 二，执行
