@@ -1,4 +1,4 @@
-#个人学习JavaScript项目
+# 个人学习JavaScript项目
 ## 1.JavaScript的编译与执行
 一，编译：
 
