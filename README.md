@@ -95,3 +95,23 @@
 ****
 ## 1.JavaScript的小技巧
 * 把脚本置于`<body>`元素的底部，可改善显示速度，因为脚本编译会拖慢显示。
+* JavaScript 对大小写敏感  
+* 如果把要给数值放入引号中，其余数值会被视作字符串并被级联。
+* 您可以在字符串内使用引号，只要这些引号与包围字符串的引号不匹配：  
+    > var answer = "It's alright";             // 双引号内的单引号  
+    > var answer = "He is called 'Bill'";    // 双引号内的单引号  
+    > var answer = 'He is called "Bill"';    // 单引号内的双引号     
+* 字符串与数值相加时，不同的顺序会产生不同的结果
+    > var x = 911 + "Porsche";      // 911Porsche  
+    > var x = "911" + "Porsche";    // 911Porsche  
+    > var x = 911 + 7 + "Porsche";  // 918Porsche  数值在前，先进行数值运算  
+    > var x = "Porsche"+911 + 7 ;   // Porsche9117 数值在后 进行字符串运算
+    > var x = 911  + "Porsche + 7"; // 911Porsche7      
+* 请注意 (x==y) 与 (x===y) 的区别。
+   > ==意为值相等  
+   > === 意为值和对象都相等   
+   > JavaScript 对象无法进行对比，比较两个 JavaScript 将始终返回 false。 
+   
+* 负数的右位移  
+[前往查看](./note/符号的右位移.md)
+                                                           

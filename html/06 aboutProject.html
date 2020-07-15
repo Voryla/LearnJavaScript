@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="car.init('zwk','porsche','911'),f()">点击</button>
+<p id="demo"></p>
+<p id="demo3"></p>
+<script>
+    var car = {
+        name: "abc",
+        model: 911,
+        driver: "zwk",
+        init: function (driver, name, model) {
+            this.driver = driver;
+            this.name = name;
+            this.model = model;
+        },
+        move: function () {
+            return this.driver + " diver " + this.name + " " + this.model;
+        }
+    }
+
+    function f() {
+        document.getElementById("demo").innerHTML = car.move();
+    }
+</script>
+</body>
+</html>

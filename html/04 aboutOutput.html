@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="demo1"></p>
+<button onclick="f()">document.write()在页面加载完成之后调用会清空页面</button>
+<script>
+    // 更改html元素的属性值
+    document.getElementById("demo1").innerHTML = 5 + 6;
+
+    function f() {
+        // document.write()在页面加载完成之后调用会清空页面
+        document.write(5 + 6);
+    }
+
+    // 在所有页面加载完成之后在调用就不会清空页面了
+    document.write(5 + 6);
+    window.alert("警告框显示数据");
+    console.log("写入控制台");
+</script>
+</body>
+</html>
