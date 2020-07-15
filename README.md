@@ -112,4 +112,17 @@
    > === 意为值和对象都相等   
    > JavaScript 对象无法进行对比，比较两个 JavaScript 将始终返回 false。 
    
-                                                           
+* 关键字const有一定的误导性
+    > 实质上，它并没有定义常量"值",而是定义了对值的常量”引用“  
+    > 因此，虽然不能更改常量引用的原始值，但是可以更改常量对象中的属性值
+    
+    ````javascript
+      // 您可以创建 const 对象：
+      const car = {type:"porsche", model:"911", color:"Black"};
+      
+      // 您可以更改属性：
+      car.color = "White";
+      
+      // 您可以添加属性：
+      car.owner = "Bill";
+  
