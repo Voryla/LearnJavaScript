@@ -110,12 +110,21 @@
 * 请注意 (x==y) 与 (x===y) 的区别。
    > ==意为值相等  
    > === 意为值和对象都相等   
-   > JavaScript 对象无法进行对比，比较两个 JavaScript 将始终返回 false。 
+   > JavaScript 对象无法进行对比，比较两个 JavaScript 将始终返回 false。   
+   > == 比较运算符总是在比较之前进行类型转换（以匹配类型）。  
+   >=== 运算符会强制对值和类型进行比较：  
+   实例  
+   0 == "";        // true  
+   1 == "1";       // true  
+   1 == true;      // true  
+   0 === "";       // false  
+   1 === "1";      // false  
+   1 === true;     // false  
    
 * 关键字const有一定的误导性
     > 实质上，它并没有定义常量"值",而是定义了对值的常量”引用“  
     > 因此，虽然不能更改常量引用的原始值，但是可以更改常量对象中的属性值
-    
+
     ````javascript
       // 您可以创建 const 对象：
       const car = {type:"porsche", model:"911", color:"Black"};
@@ -125,4 +134,45 @@
       
       // 您可以添加属性：
       car.owner = "Bill";
+      // 但是无法重新给const对象赋值其他的对象
   
+*  请勿使用 new Object()
+     > 请使用 {} 来代替 new Object()  
+      请使用 "" 来代替 new String()  
+      请使用 0 来代替 new Number()  
+      请使用 false 来代替 new Boolean()  
+      请使用 [] 来代替 new Array()  
+      请使用 /()/ 来代替 new RegExp()  
+      请使用 function (){}来代替 new Function()   
+      实例  
+      var x1 = {};           // 新对象   
+      var x2 = "";           // 新的原始字符串值  
+      var x3 = 0;            // 新的原始数值  
+      var x4 = false;        // 新的原始布尔值  
+      var x5 = [];           // 新的数组对象  
+      var x6 = /()/;         // 新的正则表达式  
+      var x7 = function(){}; // 新的函数对象    
+* 在测试对象非 null 之前，必须先测试未定义：
+  >if (typeof myObj !== "undefined" && myObj !== null)  
+* 延迟 JavaScript 加载
+    请把脚本放在页面底部，使浏览器首先加载页面。
+    
+    脚本在下载时，浏览器不会启动任何其他的下载。此外所有解析和渲染活动都可能会被阻塞。
+    
+    HTTP 规范定义浏览器不应该并行下载超过两种要素。
+    
+    一个选项是在 script 标签中使用 defer="true"。defer 属性规定了脚本应该在页面完成解析后执行，但它只适用于外部脚本。
+    
+    如果可能，您可以在页面完成加载后，通过代码向页面添加脚本：
+    
+    实例
+    ```javascript 
+  <script>
+        window.onload = downScripts;
+        
+        function downScripts() {
+            var element = document.createElement("script");
+            element.src = "myScript.js";
+            document.body.appendChild(element);
+        }
+  </script>
