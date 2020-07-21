@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // 方法重用
+    // apply: 方法能劫持另外一个对象的方法，继承另外一个对象的属性.
+    // 通过 apply() 方法，您能够编写用于不同对象的方法。
+    // JavaScript apply() 方法
+    // apply() 方法与 call() 方法非常相似：
+    // Function.apply(obj,args) 方法能接收两个参数
+    // obj：这个对象将代替 Function 类里 this 对象
+    // args：这个是数组，它将作为参数传给 Function（args-->arguments）
+    // 在本例中，person 的 fullName 方法被应用到 person1：
+    // 实例
+    var person = {
+        firstName: "Sam",
+        lastName: "Gates",
+        fullName: function () {
+            console.log(this);
+            return this.firstName + " " + this.lastName;
+        }
+    }
+    var person1 = {
+        firstName: "Bill",
+        lastName: "Gates",
+    }
+    person.fullName();  // 将返回 "Bill Gates"
+    person.fullName.apply(person1);  // 将返回 "Bill Gates"
+    // call() 和 apply() 之间的相同之处
+    // call()和apply()方法使用时都是将原对象的this替换成参数中对象，也就是说两个方法功能相同
+
+    // call() 和 apply() 之间的区别
+    // 不同之处是：
+    //
+    // call() 方法分别接受参数。
+    //
+    // apply() 方法接受数组形式的参数。
+    //
+    // 如果要使用数组而不是参数列表，则 apply() 方法非常方便。
+    // 什么时候用apply
+    // 一般在目标函数只需要 n 个参数列表, 而不接收一个数组的形式（[param1[,param2[,…[,paramN]]]]）, 可以通过 apply 的方式巧妙地解决这个问题!
+
+    Math.max(1, 2, 3);
+    // 第一个参数（null）无关紧要,也可以是“ ” 或0或Math都无关紧要
+    Math.max.apply(null, [1, 2, 3]);
+    // JavaScript 严格模式
+    // 在 JavaScript 严格模式下，如果 apply() 方法的第一个参数不是对象，则它将成为被调用函数的所有者（对象）。在“非严格”模式下，它成为全局对象。
+</script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+    // 创建函数的方法
+    // 方法一 声明式定义函数 会进行函数提升
+    f1();// 函数声明之前便可调用
+    function f1() {
+        console.log("可以在函数创建之前使用该函数")
+    }
+
+    // 方法二 函数表达式 不会进行函数提升 推荐使用函数表达式创建函数
+    console.log(x());// 报错is not a function
+    var x = function () {
+        console.log("函数表达式，无法在创建函数之前调用该函数")
+    }
+    x();
+
+    // 方法三 立即执行(自调用函数)函数，但需要将自调用函数放在代码块的最顶部
+    /* (function (形参) {
+        alert(1);
+        })(实参);
+    */
+    (function () {
+        alert(1);
+    })();
+
+    (function () {
+        alert(2);
+    }());
+    // 无限循环
+    !function () {
+        alert(3);
+    }();
+
+    // 方法四 箭头函数
+    // 箭头函数没有自己的 this。它们不适合定义对象方法。
+    // 箭头函数未被提升。它们必须在使用前进行定义。
+    // 使用 const 比使用 var 更安全，因为函数表达式始终是常量值。
+    // 如果函数是单个语句，则只能省略 return 关键字和大括号。因此，保留它们可能是一个好习惯：
+    var x = function (x, y) {
+        return x * y;
+    }
+
+    // ES6
+    const x = (x, y) => x * y;
+
+    // 函数的提升
+    // 首先，函数提升高于var变量提升，因为第三步是分析函数声明
+    // 函数在运行的瞬间，生成一个活动对象（Active Object），简称AOd
+    // 1.分析参数
+    // 函数接收形式参数，添加到AO的属性，并且这个时候值为undefine,例如AO.age=undefine
+    // 2.接收实参，添加到AO的属性，覆盖之前的undefined
+    // 分析变量声明，如var age;或var age=23;
+    // 如果上一步分析参数中AO还没有age属性，则添加AO属性为undefine，即AO.age=undefine
+    // 如果AO上面已经有age属性了，则不作任何修改
+    // 3.分析函数的声明，如果有function age(){}
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // call()方法的使用 方法重用
+    // JavaScript call() 方法
+    // call() 方法是预定义的 JavaScript 方法。
+    // 它可以用来调用所有者对象作为参数的方法。
+    // 通过 call()，您能够使用属于另一个对象的方法。
+    // 本例调用 person 的 fullName 方法，并用于 person1：
+    // call()和apply()方法使用时都是将原对象的this替换成参数中对象
+    var person = {
+        firstName: "sam",
+        lastName: "gates",
+        fullName: function () {
+            console.log(this);
+            return this.firstName + " " + this.lastName;
+        }
+    }
+    var person1 = {
+        firstName: "sam1",
+        lastName: "gates1",
+
+    }
+    var person2 = {
+        firstName: "sam2",
+        lastName: "gates2",
+    }
+    // console.log(person.fullName.call(person1));
+    // console.log(person.fullName.call(person2));
+
+    person.fullName.call(person1);
+    person.fullName.call(person2);
+    // call()方法带参数的调用
+    var person3 = {
+        fullName: function (city, country) {
+            return this.firstName + " " + this.lastName + "," + city + "," + country;
+        }
+    }
+    var person4 = {
+        firstName: "Bill",
+        lastName: "Gates"
+    }
+    // 调用call()，并传入实参
+    console.log(person3.fullName.call(person4, "Seattle", "USA"));
+</script>
+</body>
+</html>

@@ -6,15 +6,27 @@
 </head>
 <body>
 <div id="demo"></div>
+<p id="demo1"></p>
 <button onclick="downScript()">点击加载样式</button>
 <script>
-
+    // 延迟加载JavaScript,为了防止拖慢浏览器加载的速度，在一页面加载后再加载JavaScript
     window.onload = downScript;
+
+    // 加载方法
     function downScript() {
         let element = document.createElement("script");
         element.src = "../js/09 onLoadJavaScript.js";
         document.body.appendChild(element);
     }
+
+    var obj = {"name": "Bill", "age": 62, "city": false};
+    var myJSON = JSON.stringify(obj);
+    document.getElementById("demo1").innerHTML = myJSON;
+    var obje = {name: "1", writable: false}
+    var obje = JSON.stringify(obje);
+    console.log(obje);
+    myJSON = JSON.parse(myJSON);
+    console.log(myJSON.city);
 </script>
 </body>
 </html>

@@ -97,6 +97,13 @@
 * 把脚本置于`<body>`元素的底部，可改善显示速度，因为脚本编译会拖慢显示。
 * JavaScript 对大小写敏感  
 * 如果把要给数值放入引号中，其余数值会被视作字符串并被级联。
+* JavaScript 六种数据类型
+> 1.object
+> 2.number
+> 3.string
+> 4.boolean
+> 5.null
+> 6.undefined
 * 您可以在字符串内使用引号，只要这些引号与包围字符串的引号不匹配：  
     > var answer = "It's alright";             // 双引号内的单引号  
     > var answer = "He is called 'Bill'";    // 双引号内的单引号  

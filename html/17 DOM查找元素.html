@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        p.intro {
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<p id="intro"></p>
+<div id="main">
+    <p>1</p>
+    <p>2</p>
+</div>
+<div class="main">
+    <p class="intro">3</p>
+    <p>4</p>
+</div>
+<form action="" id="frm1">
+
+</form>
+<script>
+    // 1.通过 id 查找 HTML 元素
+    // 如果元素被找到，此方法会以对象返回该元素（在 myElement 中）。
+    // 如果未找到元素，myElement 将包含 null。
+    var myElement = document.getElementById("intro");
+
+    // 2.通过标签名查找 HTML 元素
+    // 先通过ID查找到元素
+    var myElementFromMain = document.getElementById("main");
+    // 再通过标签名标签名查找到指定元素的集合
+    var myElementMainChild = myElementFromMain.getElementsByTagName("p");
+    for (let i = 0; i < myElementMainChild.length; i++) {
+        myElementMainChild.item(i).style.background = "#fff000";
+    }
+
+    // 3.通过类名查找 HTML 元素   通过查找class名获取相同类名的元素集合
+    var myElementFromClass = document.getElementsByClassName("main");
+    var myElementFromClassChild = myElementFromClass.item(0).getElementsByTagName("p");
+    myElementFromClassChild.item(1).style.background = "#123456";
+
+    // 4.通过 CSS 选择器查找 HTML 元素
+    /*
+       如果您需要查找匹配指定 CSS 选择器（id、类名、类型、属性、属性值等等）的所有 HTML 元素，请使用 querySelectorAll() 方法。
+       本例返回 class="intro" 的所有 <p> 元素列表：
+    */
+    var x = document.querySelectorAll("p.intro");
+    x.item(0).style.background = "#ff00ff"
+    // querySelector与querySelectorAll方法的不同之处在于，前者搜索匹配项的第一个
+    var x1 = document.querySelector("p.intro");
+    x1.style.background = "#ffffff"
+
+    // 5.通过 HTML 对象集合查找 HTML 元素
+    // document.anchors
+    // document.body
+    // document.documentElement
+    // document.embeds
+    // document.forms
+    // document.head
+    // document.images
+    // document.links
+    // document.scripts
+    // document.title
+    var x = document.forms["frm1"];
+    var text = "";
+    var i;
+    for (i = 0; i < x.length; i++) {
+        text += x.elements[i].value + "<br>";
+    }
+    document.getElementById("demo").innerHTML = text;
+
+</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // JavaScript不会对函数的参数进行任何的检查
+    // avaScript 函数定义不会为参数（parameter）规定数据类型。
+    // JavaScript 函数不会对所传递的参数（argument）实行类型检查。
+    // JavaScript 函数不会检查所接收参数（argument）的数量。
+
+    // 参数默认
+    // 如果调用参数时省略了参数（少于被声明的数量），则丢失的值被设置为：undefined。
+    // 如果函数调用的参数太多（超过声明），则可以使用 arguments 对象来达到这些参数。
+    x = findMax(1, 123, 500, 115, 44, 88);
+
+    function findMax() {
+        var i;
+        var max = Infinity;
+        console.log(max);
+        for (i = 0; i < arguments.length; i++) {
+            if (arguments[i] > max) {
+                max = arguments[i];
+            }
+        }
+        return max;
+    }
+
+
+</script>
+</body>
+</html>
